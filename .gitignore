@@ -208,6 +208,9 @@ __marimo__/
 
 # ultralytics
 runs/
+yolo_models/
 
 # MacOS
 .DS_Store
+
+demographics.db
