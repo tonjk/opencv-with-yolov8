@@ -33,8 +33,8 @@ def run_yolo_mac():
 
         # 3. Run Inference
         # device='mps' targets the Apple Silicon GPU neural engine
-        results = model(frame, device=device, verbose=False)
-        print("Shape: ", frame.shape)
+        results = model(frame, device=device, verbose=False, save=False, conf=0.65, project="my-projects", name="run-test", exist_ok=True) # set project and name to specific folder
+        # results = model.predict(frame, device=device, verbose=False, save=False)
 
         # 4. Visualize Results
         annotated_frame = results[0].plot()
