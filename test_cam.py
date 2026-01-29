@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 import torch
 
-def run_yolo_mac():
+def run_yolo_mac(MODEL_NAME):
     # Check if MPS is available to ensure we aren't falling back to CPU silently
     if torch.backends.mps.is_available():
         device = 'mps'
@@ -12,7 +12,7 @@ def run_yolo_mac():
         print("Warning: MPS not found. Falling back to CPU.")
 
     # 1. Load the model
-    model = YOLO(model='yolo_models/yolov8n.pt')
+    model = YOLO(model=f'yolo_models/{MODEL_NAME}.pt')
 
     # 2. Open the webcam
     cap = cv2.VideoCapture(0)
@@ -24,7 +24,7 @@ def run_yolo_mac():
         print("Error: Could not open webcam.")
         return
 
-    print(f"Starting YOLOv8 on {device.upper()}...")
+    print(f"Starting {MODEL_NAME} on {device.upper()}...")
 
     while True:
         success, frame = cap.read()
@@ -40,7 +40,7 @@ def run_yolo_mac():
         annotated_frame = results[0].plot()
 
         # 5. Display the frame
-        cv2.imshow("YOLOv8 - macOS (MPS)", annotated_frame)
+        cv2.imshow(f"{MODEL_NAME} - macOS (MPS)", annotated_frame)
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
@@ -49,4 +49,4 @@ def run_yolo_mac():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    run_yolo_mac()
+    run_yolo_mac(MODEL_NAME="yolo11m")
