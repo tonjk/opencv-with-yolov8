@@ -209,6 +209,9 @@ __marimo__/
 # ultralytics
 runs/
 yolo_models/
+other_models/
+images/
+my-projects/
 
 # MacOS
 .DS_Store
