@@ -210,10 +210,17 @@ __marimo__/
 runs/
 yolo_models/
 other_models/
+mock_models/
 images/
 my-projects/
 
 # MacOS
 .DS_Store
 
-demographics.db
+ztest_*
+Safety-Harness-1/
+
+# the file end with .db
+*.db
+
+crowd detection/
