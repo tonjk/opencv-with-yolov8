@@ -224,3 +224,4 @@ Safety-Harness-1/
 *.db
 
 crowd detection/
+test-video/*
